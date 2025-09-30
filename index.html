@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Medical Symptom Checker</title>
+</head>
+<body>
+    <h1>Medical Symptom Checker</h1>
+    <form method="POST">
+        <label>Enter symptoms (comma-separated):</label><br>
+        <input type="text" name="symptoms" placeholder="e.g. fever, cough, rash" required>
+        <button type="submit">Check Conditions</button>
+    </form>
+
+    {% if conditions %}
+        <h2>Possible Conditions:</h2>
+        <ul>
+            {% for condition in conditions %}
+                <li>{{ condition }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
