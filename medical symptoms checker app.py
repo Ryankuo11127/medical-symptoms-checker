@@ -1,4 +1,6 @@
 from flask import Flask, render_template, request
+import webbrowser
+import threading
 
 app = Flask(__name__)
 
@@ -25,5 +27,14 @@ def index():
 
     return render_template("index.html", conditions=result)
 
+def open_browser():
+    print("Opening browser...")
+    webbrowser.open_new_tab("http://127.0.0.1:5000/")
+
 if __name__ == "__main__":
+    print("Starting app...")
+    threading.Timer(1.25, open_browser).start()
+    print("If browser didn't open, click here: http://127.0.0.1:5000/")
     app.run(debug=True)
+
+
